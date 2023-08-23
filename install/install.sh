@@ -13,3 +13,10 @@ echo "
 
 # Install packages
 pacman -S --noconfirm --needed  `grep -v '^#' PKGS.txt`
+
+
+
+if [ ! -d "/home/$(logname)/.local/bin" ]
+then
+    mkdir -p /home/$(logname)/.local/bin
+fi
