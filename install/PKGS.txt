@@ -1,3 +1,5 @@
 # Packages
 hyprland
+rofi
+python-pywal
 
