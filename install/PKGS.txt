@@ -2,4 +2,3 @@
 hyprland
 rofi
 python-pywal
-
