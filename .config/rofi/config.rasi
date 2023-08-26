@@ -4,7 +4,7 @@
 
 configuration {
 
-    # Enable mouse hover and single click
+    /* Enable mouse hover and single click */
     hover-select:        true;
     me-select-entry:     "";
     me-accetp-entry:     [MousePrimary, MouseSecondary, MouseDPrimary];
