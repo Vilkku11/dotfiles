@@ -4,7 +4,7 @@ theme_dir="$HOME/.config/rofi/config.rasi"
 
 
 
-chosen=$(printf "Power Off\nRestart\nLog Out" | rofi -dmenu -å "Helloo ${USER}" -i -theme ${theme_dir})
+chosen=$(printf "Power Off\nRestart\nLog Out" | rofi -dmenu -p "Helloo ${USER}" -i -theme ${theme_dir})
 
 case "$chosen" in
     "Power Off") poweroff ;;
