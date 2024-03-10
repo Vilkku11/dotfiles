@@ -4,4 +4,14 @@
 
     "height": 30,
     "width": 1280,
+
+    "modules-right": ["clock"],
+
+
+    "clock": {
+	"interval": 1,
+	"timezone": "Europe/Helsinki",
+        "format": "{:%H:%M:%S\n%d.%m%Y}",
+	"format-alt": "{:%d.%m.%Y}",
+	},
 }
