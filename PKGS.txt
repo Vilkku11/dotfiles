@@ -1,9 +1,8 @@
 # Packages
-
-
 hyprland
-stow
+waybar
 
+stow
 
 
 python-pywal

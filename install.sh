@@ -18,12 +18,15 @@ then
 fi
 
 
-# Install packages
-pacman -S --noconfirm --needed  $(awk '!/^#|^$/ {print $1}' PKGS.txt)
+echo "Installing packages..."
+sudo pacman -S --noconfirm --needed  $(awk '!/^#|^$/ {print $1}' PKGS.txt)
 
 # Works for now
 USER=$(grep home /etc/passwd|cut -d: -f1)
 
+
+echo "stow test"
+stow . -t ~/.config
 # AUR
 #git clone https://aur.archlinux.org/swww.git
 #chown -R $USER swww
