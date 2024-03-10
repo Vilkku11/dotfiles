@@ -1,4 +1,9 @@
 # Packages
+
+
 hyprland
-rofi
+stow
+
+
+
 python-pywal
