@@ -4,5 +4,10 @@ waybar
 
 stow
 
+#clipboard
+cliphist
+
+#audio (at least temporary)
+pavucontrol
 
 python-pywal
