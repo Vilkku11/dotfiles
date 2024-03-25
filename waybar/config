@@ -11,7 +11,17 @@
     "clock": {
 	"interval": 1,
 	"timezone": "Europe/Helsinki",
-        "format": "{:%H:%M:%S\n%d.%m%Y}",
+        "format": "{:%H:%M:%S\n%d.%m.%Y}",
 	"format-alt": "{:%d.%m.%Y}",
+	"calendar": {
+		"mode"		: "year",
+		"mode-mon-col"	: 3,
+		"weeks-pos"	: "left",
+		"on-scroll"	: 1,
+		"on-click-right" : "mode",
+	"format":{
+		"months":	"<span color='#ffead3'><b>{}</b></span>",
+		}
+	}
 	},
 }
