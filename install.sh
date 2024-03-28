@@ -28,6 +28,8 @@ USER=$(grep home /etc/passwd|cut -d: -f1)
 echo "stow test"
 stow . -t ~/.config
 # AUR
+# swww
+# ags
 #git clone https://aur.archlinux.org/swww.git
 #chown -R $USER swww
 #cd swww
