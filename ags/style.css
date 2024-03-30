@@ -1,5 +1,5 @@
 window.bar {
-  background-color: @theme_bg_color;
+  background-color: black;
   color: @theme_fg_color;
 }
 

@@ -5,6 +5,7 @@ import { SysTray } from "./systemTray.js";
 import { Media } from "./media.js";
 import { Volume } from "./audio.js";
 import { Network } from "./network.js";
+import { Power } from "./power.js";
 // TEST
 import { applauncher } from "./applauncher.js";
 
@@ -59,7 +60,7 @@ const Right = () => {
   return Widget.Box({
     hpack: "end",
     spacing: 8,
-    children: [SysTray(), Network(), Media(), Volume(), Clock()],
+    children: [SysTray(), Network(), Media(), Volume(), Clock(), Power()],
   });
 };
 
