@@ -9,6 +9,16 @@ import { Power } from "./power.js";
 // TEST
 import { applauncher } from "./applauncher.js";
 
+const compileSCSS = () => {
+  Utils.exec(`sass ${App.configDir}/main.scss ${App.configDir}/style.css`);
+
+  App.resetCss();
+  App.applyCss(`${App.configDir}/style.css`);
+  print("Compiled CSS");
+};
+
+compileSCSS();
+
 const Workspaces = () => {
   const activeId = hyprland.active.workspace.bind("id");
   const workspaces = hyprland.bind("workspaces").as((ws) =>
