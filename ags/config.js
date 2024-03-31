@@ -8,6 +8,7 @@ import { Network } from "./network.js";
 import { Power } from "./power.js";
 // TEST
 import { applauncher } from "./applauncher.js";
+import Calendar from "./clock/calendar.js";
 
 // NEW PROPER MODULES
 import Clock from "./clock/clock.js";
@@ -81,10 +82,5 @@ const Bar = (monitor = 0) => {
 
 App.config({
   style: App.configDir + "/style.css",
-  windows: [NotificationPopups(), Bar()],
-});
-
-App.config({
-  style: App.configDir + "/style.css",
-  windows: [applauncher],
+  windows: [NotificationPopups(), Bar(), Calendar(), applauncher],
 });
