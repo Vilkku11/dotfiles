@@ -9,12 +9,16 @@ import { Power } from "./power.js";
 // TEST
 import { applauncher } from "./applauncher.js";
 
+// NEW PROPER MODULES
+import Clock from "./clock/clock.js";
+
 const compileSCSS = () => {
   Utils.exec(`sass ${App.configDir}/main.scss ${App.configDir}/style.css`);
 
   App.resetCss();
   App.applyCss(`${App.configDir}/style.css`);
   print("Compiled CSS");
+  print(App.configDir);
 };
 
 compileSCSS();
@@ -41,19 +45,6 @@ const ClientTitle = () => {
   return Widget.Label({
     class_name: "client-title",
     label: hyprland.active.client.bind("title"),
-  });
-};
-
-// Clock
-
-const date = Variable("", {
-  poll: [1000, 'date "+%H:%M:%S %b %e"'],
-});
-
-const Clock = () => {
-  return Widget.Label({
-    class_name: "clock",
-    label: date.bind(),
   });
 };
 
