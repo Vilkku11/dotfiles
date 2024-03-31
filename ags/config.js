@@ -5,13 +5,14 @@ import { SysTray } from "./systemTray.js";
 import { Media } from "./media.js";
 import { Volume } from "./audio.js";
 import { Network } from "./network.js";
-import { Power } from "./power.js";
+//import { Power } from "./power.js";
 // TEST
 import { applauncher } from "./applauncher.js";
 import Calendar from "./clock/calendar.js";
 
 // NEW PROPER MODULES
 import Clock from "./clock/clock.js";
+import Power from "./clock/power/power.js";
 
 const compileSCSS = () => {
   Utils.exec(`sass ${App.configDir}/main.scss ${App.configDir}/style.css`);
