@@ -6,22 +6,25 @@ const date = Variable("placeholder", {
   listen: App.configDir + "/clock/date.sh",
 });
 
-const Clock = () =>
-  Widget.Box({
-    class_name: "clock-container",
-    vertical: true,
-    children: [
-      Widget.Label({
-        class_name: "clock-time",
-        hpack: "center",
-        label: time.bind(),
-      }),
-      Widget.Label({
-        class_name: "clock-date",
-        hpack: "center",
-        label: date.bind(),
-      }),
-    ],
+export const Clock = () =>
+  Widget.Button({
+    on_clicked: () => {
+      App.toggleWindow("Calendar");
+    },
+    child: Widget.Box({
+      class_name: "clock-container",
+      vertical: true,
+      children: [
+        Widget.Label({
+          class_name: "clock-time",
+          hpack: "center",
+          label: time.bind(),
+        }),
+        Widget.Label({
+          class_name: "clock-date",
+          hpack: "center",
+          label: date.bind(),
+        }),
+      ],
+    }),
   });
-
-export default Clock;

@@ -11,8 +11,8 @@ import { applauncher } from "./applauncher.js";
 import Calendar from "./clock/calendar.js";
 
 // NEW PROPER MODULES
-import Clock from "./clock/clock.js";
-import Power from "./clock/power/power.js";
+import { Clock } from "./clock/clock.js";
+import { Power, PowerMenu } from "./power/power.js";
 
 const compileSCSS = () => {
   Utils.exec(`sass ${App.configDir}/main.scss ${App.configDir}/style.css`);
@@ -20,7 +20,6 @@ const compileSCSS = () => {
   App.resetCss();
   App.applyCss(`${App.configDir}/style.css`);
   print("Compiled CSS");
-  print(App.configDir);
 };
 
 compileSCSS();
@@ -83,5 +82,5 @@ const Bar = (monitor = 0) => {
 
 App.config({
   style: App.configDir + "/style.css",
-  windows: [NotificationPopups(), Bar(), Calendar(), applauncher],
+  windows: [NotificationPopups(), Bar(), Calendar(), PowerMenu(), applauncher],
 });
