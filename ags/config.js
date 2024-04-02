@@ -3,9 +3,7 @@ const hyprland = await Service.import("hyprland");
 import { NotificationPopups } from "./notificationPopups.js";
 import { SysTray } from "./systemTray.js";
 import { Media } from "./media.js";
-//import { Volume } from "./audio.js";
 import { Network } from "./network.js";
-//import { Power } from "./power.js";
 // TEST
 import { applauncher } from "./applauncher.js";
 import Calendar from "./clock/calendar.js";

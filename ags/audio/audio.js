@@ -24,8 +24,9 @@ const volumeIndicator = Widget.Button({
 });
 
 const volumeSlider = Widget.Slider({
+  class_name: "volume-slider",
   hexpand: true,
-  draw_value: true,
+  draw_value: false,
   on_change: ({ value }) => (audio.speaker.volume = value),
   setup: (self) =>
     self.hook(audio.speaker, () => {
@@ -47,6 +48,7 @@ export const VolumeMenu = () => {
     anchor: ["top", "right"],
     margins: [4, 95],
     child: Widget.Box({
+      class_name: "volume-menu-box",
       vertical: true,
       children: [
         Widget.Label({
