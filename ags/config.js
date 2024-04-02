@@ -3,7 +3,7 @@ const hyprland = await Service.import("hyprland");
 import { NotificationPopups } from "./notificationPopups.js";
 import { SysTray } from "./systemTray.js";
 import { Media } from "./media.js";
-import { Volume } from "./audio.js";
+//import { Volume } from "./audio.js";
 import { Network } from "./network.js";
 //import { Power } from "./power.js";
 // TEST
@@ -13,6 +13,7 @@ import Calendar from "./clock/calendar.js";
 // NEW PROPER MODULES
 import { Clock } from "./clock/clock.js";
 import { Power, PowerMenu } from "./power/power.js";
+import { Volume, VolumeMenu } from "./audio/audio.js";
 
 const compileSCSS = () => {
   Utils.exec(`sass ${App.configDir}/main.scss ${App.configDir}/style.css`);
@@ -82,5 +83,12 @@ const Bar = (monitor = 0) => {
 
 App.config({
   style: App.configDir + "/style.css",
-  windows: [NotificationPopups(), Bar(), Calendar(), PowerMenu(), applauncher],
+  windows: [
+    NotificationPopups(),
+    Bar(),
+    Calendar(),
+    PowerMenu(),
+    VolumeMenu(),
+    applauncher,
+  ],
 });
