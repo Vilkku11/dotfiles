@@ -13,7 +13,7 @@
 slider {
   min-height: 20px;
   min-width: 18px;
-  margin: -10px;
+  margin: 0px;
 }
 
 slider {
@@ -25,13 +25,13 @@ slider {
 }
 
 slider:disabled {
-  box-shadow: inset 0 0 0 2px mix(blue, green, 30%);
+  box-shadow: inset 0 0 0 2px mix(white, black, 50%);
 }
 
 slider:hover {
-  box-shadow: inset 0 0 0 2px blue, 0 0 0 8px transparentize(green, 0.9);
+  box-shadow: inset 0 0 0 2px white, 0 0 0 8px transparentize(white, 0.9);
 }
 
 slider:active {
-  box-shadow: inset 0 0 0 4px green, 0 0 0 8px transparentize(blue, 0.9);
+  box-shadow: inset 0 0 0 4px white, 0 0 0 8px transparentize(white, 0.7);
 }

@@ -51,8 +51,9 @@ export const VolumeMenu = () => {
       class_name: "volume-menu-box",
       vertical: true,
       children: [
-        Widget.Label({
-          label: "Vol",
+        Widget.Label().hook(audio.speaker, (self) => {
+          const vol = Math.floor(audio.speaker.volume * 100);
+          self.label = audio.speaker.is_muted ? "Mute" : `Vol: ${vol}%`;
         }),
         volumeSlider,
       ],

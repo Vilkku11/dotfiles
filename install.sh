@@ -12,10 +12,6 @@ echo "
 "
 
 
-if [ ! -d "/home/$(logname)/.local/bin" ]
-then
-    mkdir -p /home/$(logname)/.local/bin
-fi
 
 
 echo "Installing packages..."
@@ -28,8 +24,15 @@ USER=$(grep home /etc/passwd|cut -d: -f1)
 echo "stow test"
 stow . -t ~/.config
 # AUR
-# swww
+
+#mkdir -p ~/AUR
+#cd ~/AUR
 # ags
+#git clone https://aur.archlinux.org/aylurs-gtk-shell-git.git
+#makepkg -s
+
+
+# swww
 #git clone https://aur.archlinux.org/swww.git
 #chown -R $USER swww
 #cd swww
