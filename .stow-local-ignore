@@ -17,6 +17,8 @@ _darcs
 ^/install.sh
 ^/PKGS
 ^/.gitignore
+^/makefile
+
 .+~          # emacs backup files
 \#.*\#       # emacs autosave files
 

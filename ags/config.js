@@ -1,7 +1,7 @@
 const hyprland = await Service.import("hyprland");
+const notifications = await Service.import("notifications");
 
-import { NotificationPopups } from "./notificationPopups.js";
-import { SysTray } from "./systemTray.js";
+//import { SysTray } from "./systemTray.js";
 import { Media } from "./media.js";
 import { Network } from "./network.js";
 // TEST
@@ -12,6 +12,13 @@ import Calendar from "./clock/calendar.js";
 import { Clock } from "./clock/clock.js";
 import { Power, PowerMenu } from "./power/power.js";
 import { Volume, VolumeMenu } from "./audio/audio.js";
+import { SystemTray } from "./systemtray/systemTray.js";
+import { Netspeed } from "./netspeed/netspeed.js";
+
+//import { notificationReveal } from "./notification/notification.js";
+//import { notification } from "./notification/notification.js";
+import popup from "./notification/popup.js";
+//import { NotificationPopups } from "./notificationPopups.js";
 
 const compileSCSS = () => {
   Utils.exec(`sass ${App.configDir}/main.scss ${App.configDir}/style.css`);
@@ -61,7 +68,15 @@ const Right = () => {
   return Widget.Box({
     hpack: "end",
     spacing: 8,
-    children: [SysTray(), Network(), Media(), Volume(), Clock(), Power()],
+    children: [
+      Netspeed(),
+      SystemTray(),
+      Network(),
+      Media(),
+      Volume(),
+      Clock(),
+      Power(),
+    ],
   });
 };
 
@@ -79,14 +94,18 @@ const Bar = (monitor = 0) => {
   });
 };
 
+notifications.popupTimeout = 5000;
+notifications.forceTimeout = true;
+
 App.config({
   style: App.configDir + "/style.css",
   windows: [
-    NotificationPopups(),
+    //NotificationPopups(),
     Bar(),
     Calendar(),
     PowerMenu(),
     VolumeMenu(),
+    popup(),
     applauncher,
   ],
 });

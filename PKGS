@@ -16,3 +16,7 @@ polkit-kde-agent
 
 
 python-pywal
+
+
+#make
+nlohmann-json
