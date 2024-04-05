@@ -32,7 +32,6 @@ void readData(NetworkData *data) {
     std::getline(file, line);
     std::getline(file, line);
 
-    long long rx, tx = 0;
     std::string iface;
 
     while (std::getline(file, line)) {
@@ -58,7 +57,7 @@ void readData(NetworkData *data) {
 int main(int argc, char * argv[]) {
 
     // Initialize
-    NetworkData data = {0};
+    NetworkData data = {};
     // Which interface?
     data.interface = "wlp5s0:";
     

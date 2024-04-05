@@ -1,8 +1,8 @@
 NETSPEEDSRC := ags/netspeed/netspeed.cpp
-NETSPEEDBIN := ags/netspeed/netspeed
+NETSPEEDBIN := ags/netspeed/Netspeed
 
 $(NETSPEEDBIN): $(NETSPEEDSRC)
-	g++ -O2 -Wall -o $@ $<
+	g++ -O2 -Wall -Wextra -o $@ $<
 
 
 .PHONY: clean

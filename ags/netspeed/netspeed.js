@@ -2,7 +2,7 @@ const netspeed = Variable(
   { D: "test", U: "" },
   {
     listen: [
-      App.configDir + "/netspeed/netspeed",
+      App.configDir + "/netspeed/Netspeed",
       (out) => {
         return JSON.parse(out);
       },
