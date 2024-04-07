@@ -20,6 +20,7 @@ const volumeIndicator = Widget.Button({
       : icons[Math.max(...Object.keys(icons).filter((key) => key <= vol))];
     self.icon = `audio-volume-${icon}-symbolic`;
     self.tooltip_text = `Volume ${Math.floor(vol)}%`;
+    self.size = 20;
   }),
 });
 

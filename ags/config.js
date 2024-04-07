@@ -5,7 +5,7 @@ const notifications = await Service.import("notifications");
 import { Media } from "./media.js";
 import { Network } from "./network.js";
 // TEST
-import { applauncher } from "./applauncher.js";
+//import { applauncher } from "./applauncher.js";
 import Calendar from "./clock/calendar.js";
 
 // NEW PROPER MODULES
@@ -14,6 +14,7 @@ import { Power, PowerMenu } from "./power/power.js";
 import { Volume, VolumeMenu } from "./audio/audio.js";
 import { SystemTray } from "./systemtray/systemTray.js";
 import { Netspeed } from "./netspeed/netspeed.js";
+import { Applauncher } from "./applauncher/applauncher.js";
 
 //import { notificationReveal } from "./notification/notification.js";
 //import { notification } from "./notification/notification.js";
@@ -106,6 +107,6 @@ App.config({
     PowerMenu(),
     VolumeMenu(),
     popup(),
-    applauncher,
+    Applauncher,
   ],
 });

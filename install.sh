@@ -20,7 +20,8 @@ sudo pacman -S --noconfirm --needed  $(awk '!/^#|^$/ {print $1}' PKGS)
 # Works for now
 USER=$(grep home /etc/passwd|cut -d: -f1)
 
-
+echo "compile"
+make
 echo "stow test"
 stow . -t ~/.config
 # AUR

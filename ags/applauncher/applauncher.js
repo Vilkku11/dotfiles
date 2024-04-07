@@ -4,9 +4,13 @@ const WINDOW_NAME = "applauncher";
 /* @param {import('resource:///com/github/Aylur/ags/service/applications.js').Application} app */
 const AppItem = (app) =>
   Widget.Button({
+    class_name: "applauncher-item",
     on_clicked: () => {
       App.closeWindow(WINDOW_NAME);
       app.launch();
+    },
+    on_hover: (self) => {
+      self.grab_focus();
     },
     attribute: { app },
     child: Widget.Box({
@@ -26,7 +30,7 @@ const AppItem = (app) =>
     }),
   });
 
-const Applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
+const applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
   // list of application buttons
   let applications = query("").map(AppItem);
 
@@ -47,6 +51,7 @@ const Applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
   const entry = Widget.Entry({
     hexpand: true,
     css: `margin-bottom: ${spacing}px;`,
+    class_name: "applauncher-entry",
 
     // to launch the first item on Enter
     on_accept: () => {
@@ -70,6 +75,7 @@ const Applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
   return Widget.Box({
     vertical: true,
     css: `margin: ${spacing * 2}px;`,
+    //class_name: "applauncher-",
     children: [
       entry,
 
@@ -95,15 +101,16 @@ const Applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
 };
 
 // there needs to be only one instance
-export const applauncher = Widget.Window({
+export const Applauncher = Widget.Window({
   name: WINDOW_NAME,
+  class_name: "applauncher-window",
   setup: (self) =>
     self.keybind("Escape", () => {
       App.closeWindow(WINDOW_NAME);
     }),
   visible: false,
   keymode: "exclusive",
-  child: Applauncher({
+  child: applauncher({
     width: 500,
     height: 500,
     spacing: 12,

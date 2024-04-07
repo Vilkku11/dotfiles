@@ -1,8 +1,19 @@
+const interfaceToListen = "wlp5s0:";
+
+const getInterfaces = async () => {
+  try {
+    const out = await Utils.execAsync(App.configDir + "/netspeed/Netspeed");
+    return JSON.parse(out);
+  } catch (err) {
+    return err;
+  }
+};
+
 const netspeed = Variable(
-  { D: "test", U: "" },
+  { D: "", U: "" },
   {
     listen: [
-      App.configDir + "/netspeed/Netspeed",
+      App.configDir + `/netspeed/Netspeed ${interfaceToListen}`,
       (out) => {
         return JSON.parse(out);
       },
