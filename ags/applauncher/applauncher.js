@@ -10,7 +10,7 @@ const AppItem = (app) =>
       app.launch();
     },
     on_hover: (self) => {
-      self.grab_focus();
+      //self.grab_focus();
     },
     attribute: { app },
     child: Widget.Box({
@@ -94,7 +94,7 @@ const applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
         if (visible) {
           repopulate();
           entry.text = "";
-          entry.grab_focus();
+          //entry.grab_focus();
         }
       }),
   });

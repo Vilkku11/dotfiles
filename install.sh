@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/bash
 
 echo "
 
@@ -17,8 +17,7 @@ echo "
 echo "Installing packages..."
 sudo pacman -S --noconfirm --needed  $(awk '!/^#|^$/ {print $1}' PKGS)
 
-# Works for now
-USER=$(grep home /etc/passwd|cut -d: -f1)
+#USER=$(grep home /etc/passwd|cut -d: -f1)
 
 echo "compile"
 make

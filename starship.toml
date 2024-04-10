@@ -1,0 +1,93 @@
+#"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$os$directory$\
+git_branch$git_status\
+$rust\
+$nodejs\
+$python\
+$java\
+$kotlin\
+$fill\
+$status$cmd_duration
+$character
+"""
+
+[character]
+error_symbol = '[❌](bold red)'
+
+[os]
+format = '[$symbol](white)'
+disabled = false
+
+[os.symbols]
+Arch = " "
+Debian = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
+[directory]
+style = "blue"
+truncation_length = 0
+truncate_to_repo = false
+read_only = " 󰌾"
+
+[git_branch]
+symbol = ' '
+format = 'via [$symbol$branch]($style)'
+#truncation_length = 4
+#truncation_symbol = '…'
+style = 'bold purple'
+
+[git_status]
+format = '([ \[ $all_status$ahead_behind\]]($style) )'
+style = 'bold purple'
+conflicted = '[ confliced=${count}](red) '
+up_to_date = '[󰘽 up-to-date](green) '
+untracked = '[󰋗 untracked=${count}](red) '
+ahead = ' ahead=${count}'
+diverged = ' ahead=${ahead_count}  behind=${behind_count}'
+behind = ' behind=${count}'
+stashed = '[ stashed=${count}](green) '
+modified = '[󰛿 modified=${count}](yellow) '
+staged = '[󰐗 staged=${count}](green) '
+renamed = '[󱍸 renamed=${count}](yellow) '
+deleted = '[󰍶 deleted=${count}](red) '
+
+#[package]
+#format = 'via [$symbol $version](208 bold)'
+#symbol = "󰏗 "
+#disabled = false
+
+[rust]
+format = ' [$symbol Rust $version](208 bold)'
+symbol = '🦀 '
+
+[nodejs]
+format = ' [$symbol Node.js $version](green bold)'
+symbol = ' '
+
+[python]
+format = ' [$symbol Python $version](yellow bold)[ $virtualenv](cyan bold)'
+symbol = " "
+
+[java]
+format = ' [$symbol Java $version](208 bold)'
+symbol = " "
+
+[kotlin]
+format = ' [$symbol Kotlin $version](blue bold)'
+symbol = " "
+
+[fill]
+symbol= ' '
+
+[status]
+symbol = '[❌](bold red)'
+disabled = false
+
+[cmd_duration]
+min_time = 2
+format = '[$duration](bold yellow)'
+disabled = false

@@ -17,6 +17,8 @@ polkit-kde-agent
 
 python-pywal
 
+#terminal
+starship
 
 #make
 nlohmann-json

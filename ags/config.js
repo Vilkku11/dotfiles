@@ -16,6 +16,8 @@ import { SystemTray } from "./systemtray/systemTray.js";
 import { Netspeed } from "./netspeed/netspeed.js";
 import { Applauncher } from "./applauncher/applauncher.js";
 
+import { ClientTitle } from "./clienttitle/clientTitle.js";
+
 //import { notificationReveal } from "./notification/notification.js";
 //import { notification } from "./notification/notification.js";
 import popup from "./notification/popup.js";
@@ -49,13 +51,6 @@ const Workspaces = () => {
   });
 };
 
-const ClientTitle = () => {
-  return Widget.Label({
-    class_name: "client-title",
-    label: hyprland.active.client.bind("title"),
-  });
-};
-
 // Item holders
 
 const Left = () => {
@@ -70,10 +65,10 @@ const Right = () => {
     hpack: "end",
     spacing: 8,
     children: [
+      Media(),
       Netspeed(),
       SystemTray(),
       Network(),
-      Media(),
       Volume(),
       Clock(),
       Power(),
