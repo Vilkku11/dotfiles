@@ -1,7 +1,7 @@
 #!/bin/bash
 
 UTC_OFFSET=$((3*3600))
-DAY=$((24*60*60))
+DAY=$((24*3600))
 
 while true; do
     echo $(date "+%d.%m.%Y")

@@ -6,11 +6,22 @@
 
 .volume-menu-box {
   min-width: 200px;
+  min-height: 50em;
   margin-bottom: 10px;
   margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /*.volume-slider {
   margin-bottom: 10px;
   margin-top: 10px;
 }*/
+
+.volume-scrollable {
+  min-height: 250px;
+}
+.vol-separator {
+  background-color: white;
+}
+//https://stackoverflow.com/questions/35138228/scale-font-size-based-on-widget-size-in-gtk-3-0

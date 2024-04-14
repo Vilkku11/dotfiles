@@ -65,11 +65,11 @@ const Right = () => {
     hpack: "end",
     spacing: 8,
     children: [
-      Media(),
+      //Media(),
       Netspeed(),
       SystemTray(),
       Network(),
-      Volume(),
+      Volume,
       Clock(),
       Power(),
     ],
