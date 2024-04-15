@@ -48,7 +48,7 @@ const fetchIcon = (type) => {
   return "";
 };
 
-const volumeItem = (type = "") => {
+const volumeItem = (type = "", icon = "") => {
   if (typeof type === "string") {
     return Widget.Box({
       vertical: false,
@@ -71,21 +71,29 @@ const volumeItem = (type = "") => {
     });
   }
   return Widget.Box({
-    vertical: false,
+    vertical: true,
     children: [
       Widget.Label({
         label: type.description,
       }),
-      Widget.Slider({
-        class_name: "volume-slider",
-        hexpand: true,
-        draw_value: false,
-        on_change: ({ value }) => (type.volume = value),
-        value: type.bind("volume"),
-      }),
-      Widget.Label().hook(type, (self) => {
-        const vol = Math.floor(type.volume * 100);
-        self.label = type.is_muted ? "0%" : `${vol}%`;
+      Widget.Box({
+        vertical: false,
+        children: [
+          Widget.Icon({
+            icon: icon,
+          }),
+          Widget.Slider({
+            class_name: "volume-slider",
+            hexpand: true,
+            draw_value: false,
+            on_change: ({ value }) => (type.volume = value),
+            value: type.bind("volume"),
+          }),
+          Widget.Label().hook(type, (self) => {
+            const vol = Math.floor(type.volume * 100);
+            self.label = type.is_muted ? "0%" : `${vol}%`;
+          }),
+        ],
       }),
     ],
   });
@@ -99,7 +107,9 @@ const AppMixer = Widget.Scrollable({
     vertical: true,
     setup: (self) => {
       const updateChildren = () => {
-        self.children = audio.apps.map(volumeItem);
+        self.children = audio.apps.map((item) =>
+          volumeItem(item, item.icon_name)
+        );
       };
       audio.connect("stream-added", updateChildren);
       audio.connect("stream-removed", updateChildren);
@@ -116,9 +126,15 @@ const StreamMixer = Widget.Scrollable({
     setup: (self) => {
       const updateChildren = () => {
         self.children = [
-          ...audio.speakers.map(volumeItem),
-          ...audio.microphones.map(volumeItem),
-          ...audio.recorders.map(volumeItem),
+          ...audio.speakers.map((item) =>
+            volumeItem(item, volumeIcons.speaker[50])
+          ),
+          ...audio.microphones.map((item) =>
+            volumeItem(item, volumeIcons.microphone[100])
+          ),
+          ...audio.recorders.map((item) =>
+            volumeItem(item, volumeIcons.microphone[100])
+          ),
         ];
       };
       audio.connect("stream-added", updateChildren);
@@ -147,7 +163,6 @@ export const VolumeMenu = () => {
         volumeItem("microphone"),
         Separator,
         AppMixer,
-        Separator,
         StreamMixer,
       ],
     }),
