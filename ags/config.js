@@ -2,8 +2,8 @@ const hyprland = await Service.import("hyprland");
 const notifications = await Service.import("notifications");
 
 //import { SysTray } from "./systemTray.js";
-import { Media } from "./media.js";
-import { Network } from "./network.js";
+//import { Media } from "./media.js";
+//import { Network } from "./network.js";
 // TEST
 //import { applauncher } from "./applauncher.js";
 import Calendar from "./clock/calendar.js";
@@ -15,6 +15,7 @@ import { Volume, VolumeMenu } from "./audio/audio.js";
 import { SystemTray } from "./systemtray/systemTray.js";
 import { Netspeed } from "./netspeed/netspeed.js";
 import { Applauncher } from "./applauncher/applauncher.js";
+import { Network, NetworkMenu } from "./network/network.js";
 
 import { ClientTitle } from "./clienttitle/clientTitle.js";
 
@@ -101,6 +102,7 @@ App.config({
     Calendar(),
     PowerMenu(),
     VolumeMenu(),
+    NetworkMenu(),
     popup(),
     Applauncher,
   ],

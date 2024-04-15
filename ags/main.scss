@@ -1,7 +1,7 @@
 * {
   all: unset;
   font-family: "MartianMono Nerd Font";
-  font-size: 12px;
+  font-size: 10px;
 }
 //font-family: "CaskaydiaCove Nerd Font";
 //IntoneMono  MartianMono
@@ -14,6 +14,7 @@
 @import "systemtray/systemTray";
 @import "netspeed/netspeed";
 @import "applauncher/applauncher";
+@import "network/network";
 
 // Common (for now)
 slider {
