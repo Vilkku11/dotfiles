@@ -1,4 +1,3 @@
-const hyprland = await Service.import("hyprland");
 const notifications = await Service.import("notifications");
 
 //import { SysTray } from "./systemTray.js";
@@ -16,6 +15,7 @@ import { SystemTray } from "./systemtray/systemTray.js";
 import { Netspeed } from "./netspeed/netspeed.js";
 import { Applauncher } from "./applauncher/applauncher.js";
 import { Network, NetworkMenu } from "./network/network.js";
+import { Workspaces } from "./workspaces/workspaces.js";
 
 import { ClientTitle } from "./clienttitle/clientTitle.js";
 
@@ -34,30 +34,20 @@ const compileSCSS = () => {
 
 compileSCSS();
 
-const Workspaces = () => {
-  const activeId = hyprland.active.workspace.bind("id");
-  const workspaces = hyprland.bind("workspaces").as((ws) =>
-    ws.map(({ id }) =>
-      Widget.Button({
-        on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
-        child: Widget.Label(`${id}`),
-        class_name: activeId.as((i) => `${i === id ? "focused" : ""}`),
-      })
-    )
-  );
-
-  return Widget.Box({
-    class_name: "workspaces",
-    children: workspaces,
-  });
-};
-
 // Item holders
 
 const Left = () => {
   return Widget.Box({
     spacing: 8,
-    children: [Workspaces(), ClientTitle()],
+    children: [Workspaces()],
+  });
+};
+
+const Middle = () => {
+  return Widget.Box({
+    hpack: "center",
+    spacing: 8,
+    children: [ClientTitle()],
   });
 };
 
@@ -86,6 +76,7 @@ const Bar = (monitor = 0) => {
     exclusivity: "exclusive",
     child: Widget.CenterBox({
       start_widget: Left(),
+      center_widget: Middle(),
       end_widget: Right(),
     }),
   });
