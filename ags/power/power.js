@@ -8,7 +8,6 @@ export const Power = () =>
     child: Widget.Icon({
       class_name: "power-icon",
       icon: "system-shutdown-symbolic",
-      size: 20,
     }),
   });
 

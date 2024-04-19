@@ -1,4 +1,4 @@
-const notifications = await Service.import("notifications");
+//const notifications = await Service.import("notifications");
 
 //import { SysTray } from "./systemTray.js";
 //import { Media } from "./media.js";
@@ -19,10 +19,10 @@ import { Workspaces } from "./workspaces/workspaces.js";
 
 import { ClientTitle } from "./clienttitle/clientTitle.js";
 
-//import { notificationReveal } from "./notification/notification.js";
-//import { notification } from "./notification/notification.js";
-import popup from "./notification/popup.js";
-//import { NotificationPopups } from "./notificationPopups.js";
+import {
+  NotificationWidget,
+  NotificationList,
+} from "./notification/notification.js";
 
 const compileSCSS = () => {
   Utils.exec(`sass ${App.configDir}/main.scss ${App.configDir}/style.css`);
@@ -56,8 +56,8 @@ const Right = () => {
     hpack: "end",
     spacing: 8,
     children: [
-      //Media(),
       Netspeed(),
+      NotificationWidget(),
       SystemTray(),
       Network(),
       Volume,
@@ -82,9 +82,6 @@ const Bar = (monitor = 0) => {
   });
 };
 
-notifications.popupTimeout = 5000;
-notifications.forceTimeout = true;
-
 App.config({
   style: App.configDir + "/style.css",
   windows: [
@@ -94,7 +91,7 @@ App.config({
     PowerMenu(),
     VolumeMenu(),
     NetworkMenu(),
-    popup(),
     Applauncher,
+    NotificationList(),
   ],
 });

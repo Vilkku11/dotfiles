@@ -1,9 +1,12 @@
 .workspaces {
-  font-size: 20rem;
   background-color: rgba(0, 0, 0, 0.9);
 
   &-focused {
     background-color: red;
     color: black;
   }
+}
+
+.workspace-label {
+  font-size: 1rem;
 }
