@@ -23,6 +23,7 @@ import {
   NotificationWidget,
   NotificationList,
 } from "./notification/notification.js";
+import { NotificationPopups } from "./notification/popup.js";
 
 const compileSCSS = () => {
   Utils.exec(`sass ${App.configDir}/main.scss ${App.configDir}/style.css`);
@@ -93,5 +94,6 @@ App.config({
     NetworkMenu(),
     Applauncher,
     NotificationList(),
+    NotificationPopups(),
   ],
 });

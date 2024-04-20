@@ -1,6 +1,8 @@
 const Notifications = await Service.import("notifications");
 
-Notifications.popupTimeout = 5000;
+import { notification } from "./popup.js";
+
+Notifications.popupTimeout = 10000;
 Notifications.forceTimeout = false;
 Notifications.cacheActions = false;
 Notifications.clearDelay = 100;
@@ -18,13 +20,6 @@ export const NotificationWidget = () => {
   });
 };
 
-const notificationItem = (item) => {
-  return Widget.Box({
-    vertical: false,
-    children: [Widget.Label({ label: item.summary })],
-  });
-};
-
 const notificationList = Widget.Scrollable({
   hscroll: "never",
   vscroll: "automatic",
@@ -34,7 +29,7 @@ const notificationList = Widget.Scrollable({
     setup: (self) => {
       const updateList = () => {
         self.children = Notifications.notifications.map((item) =>
-          notificationItem(item)
+          notification(item)
         );
       };
       Notifications.connect("notified", updateList);
