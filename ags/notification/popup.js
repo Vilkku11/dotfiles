@@ -55,19 +55,38 @@ export const notification = (n) => {
     wrap: true,
   });
 
+  const notificationButtons = () => {
+    return Widget.Button({
+      class_name: "notification-actions-button",
+      on_clicked: () => {
+        n.invoke(id);
+        n.dismiss();
+      },
+      hexpand: true,
+      child: Widget.Label(label),
+    });
+  };
+
   const actions = Widget.Box({
     class_name: "notification-actions",
-    children: n.actions.map(({ id, label }) =>
+    children: [
       Widget.Button({
         class_name: "notification-actions-button",
         on_clicked: () => {
-          n.invoke(id);
+          print("dismiss button pressed");
           n.dismiss();
+          n.close();
         },
         hexpand: true,
-        child: Widget.Label(label),
-      })
-    ),
+        child: Widget.Label("Dismiss"),
+      }),
+    ],
+    setup: (self) => {
+      self.children = [
+        self.children[0],
+        ...n.actions.map(({ id, label }) => notificationButtons(id, label)),
+      ];
+    },
   });
 
   return Widget.EventBox(
