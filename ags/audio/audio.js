@@ -51,11 +51,15 @@ const fetchIcon = (type) => {
 const volumeItem = (type = "", icon = "") => {
   if (typeof type === "string") {
     return Widget.Box({
+      //class_name: "volumeitem",
       vertical: false,
       children: [
-        Widget.Icon().hook(audio[type], (self) => {
-          self.icon = fetchIcon(type);
-        }),
+        Widget.Icon({ class_name: "volumeitem-icon" }).hook(
+          audio[type],
+          (self) => {
+            self.icon = fetchIcon(type);
+          }
+        ),
         Widget.Slider({
           class_name: "volume-slider",
           hexpand: true,
@@ -63,23 +67,29 @@ const volumeItem = (type = "", icon = "") => {
           on_change: ({ value }) => (audio[type].volume = value),
           value: audio[type].bind("volume"),
         }),
-        Widget.Label().hook(audio[type], (self) => {
-          const vol = Math.floor(audio[type].volume * 100);
-          self.label = audio[type].is_muted ? "0%" : `${vol}%`;
-        }),
+        Widget.Label({ class_name: "volumeitem-label" }).hook(
+          audio[type],
+          (self) => {
+            const vol = Math.floor(audio[type].volume * 100);
+            self.label = audio[type].is_muted ? "0%" : `${vol}%`;
+          }
+        ),
       ],
     });
   }
   return Widget.Box({
+    class_name: "volumeitem",
     vertical: true,
     children: [
       Widget.Label({
+        class_name: "volumeitem-label-name",
         label: type.description,
       }),
       Widget.Box({
         vertical: false,
         children: [
           Widget.Icon({
+            class_name: "volumeitem-icon",
             icon: icon,
           }),
           Widget.Slider({
@@ -89,10 +99,13 @@ const volumeItem = (type = "", icon = "") => {
             on_change: ({ value }) => (type.volume = value),
             value: type.bind("volume"),
           }),
-          Widget.Label().hook(type, (self) => {
-            const vol = Math.floor(type.volume * 100);
-            self.label = type.is_muted ? "0%" : `${vol}%`;
-          }),
+          Widget.Label({ class_name: "volumeitem-label" }).hook(
+            type,
+            (self) => {
+              const vol = Math.floor(type.volume * 100);
+              self.label = type.is_muted ? "0%" : `${vol}%`;
+            }
+          ),
         ],
       }),
     ],
@@ -143,10 +156,11 @@ const StreamMixer = Widget.Scrollable({
   }),
 });
 
-const Separator = Widget.Separator({
-  class_name: "vol-separator",
-  vertical: false,
-});
+const Separator = () =>
+  Widget.Separator({
+    class_name: "vol-separator",
+    vertical: false,
+  });
 
 export const VolumeMenu = () => {
   return Widget.Window({
@@ -161,8 +175,9 @@ export const VolumeMenu = () => {
       children: [
         volumeItem("speaker"),
         volumeItem("microphone"),
-        Separator,
+        Separator(),
         AppMixer,
+        Separator(),
         StreamMixer,
       ],
     }),

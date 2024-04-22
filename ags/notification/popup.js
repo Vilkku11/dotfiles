@@ -63,7 +63,10 @@ export const notification = (n) => {
         n.dismiss();
       },
       hexpand: true,
-      child: Widget.Label(label),
+      child: Widget.Label({
+        class_name: "notification-body",
+        label: label,
+      }),
     });
   };
 
@@ -73,12 +76,14 @@ export const notification = (n) => {
       Widget.Button({
         class_name: "notification-actions-button",
         on_clicked: () => {
-          print("dismiss button pressed");
           n.dismiss();
           n.close();
         },
         hexpand: true,
-        child: Widget.Label("Dismiss"),
+        child: Widget.Label({
+          class_name: "notification-body",
+          label: "Dismiss",
+        }),
       }),
     ],
     setup: (self) => {

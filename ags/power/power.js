@@ -23,6 +23,7 @@ const powerButton = (name, icon, size, command) => {
           size: size,
         }),
         Widget.Label({
+          class_name: "power-menu-button-label",
           hpack: "center",
           label: name,
         }),
@@ -36,11 +37,17 @@ export const PowerMenu = () => {
     name: "Powermenu",
     class_name: "power-menu",
     visible: false,
+    keymode: "exclusive",
+    setup: (self) =>
+      self.keybind("Escape", () => {
+        App.closeWindow("Powermenu");
+      }),
     child: Widget.Box({
       vertical: true,
       children: [
         Widget.Label({
-          label: "Powermenu",
+          class_name: "power-menu-label",
+          label: "?",
         }),
         Widget.Box({
           vertical: false,

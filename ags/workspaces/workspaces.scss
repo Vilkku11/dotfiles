@@ -1,12 +1,26 @@
 .workspaces {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
   background-color: rgba(0, 0, 0, 0.9);
+  transition: background-color 0.3s ease;
 
   &-focused {
-    background-color: red;
-    color: black;
+    @extend .workspaces;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    .workspace-label {
+      font-weight: bold;
+      //font-style: oblique;
+    }
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.9);
   }
 }
 
 .workspace-label {
+  margin-left: 1rem;
+  margin-right: 1rem;
   font-size: 1rem;
 }

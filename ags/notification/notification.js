@@ -54,17 +54,15 @@ export const NotificationList = () => {
           vertical: false,
           children: [
             Widget.Button({
+              class_name: "notification-actions-button",
               on_clicked: () => {
                 print("clear all");
                 Notifications.clear();
               },
-              child: Widget.Label({ label: "Clear all" }),
-            }),
-            Widget.Button({
-              on_clicked: () => {
-                print("DO NOT DISTURB PRESSED");
-              },
-              child: Widget.Label({ label: "Do not disturb" }),
+              child: Widget.Label({
+                class_name: "notification-body",
+                label: "Clear all",
+              }),
             }),
           ],
         }),

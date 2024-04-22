@@ -48,6 +48,7 @@ export const Network = () => {
 
 const accessPoint = (obj) => {
   return Widget.Box({
+    class_name: "network-item",
     children: [
       Widget.Icon({
         icon: obj.iconName,

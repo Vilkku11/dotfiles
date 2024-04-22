@@ -13,7 +13,7 @@ export const Workspaces = () => {
             label: `${id}`,
           }),
           class_name: activeId.as(
-            (i) => `${i === id ? "workspaces-focused" : ""}`
+            (i) => `${i === id ? "workspaces-focused" : "workspaces"}`
           ),
         })
       )

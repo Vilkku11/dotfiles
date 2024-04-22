@@ -2,6 +2,12 @@
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-.applauncher-item:focus {
-  background-color: white;
+.applauncher-item {
+  transition: background-color 0.1s ease;
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
 }

@@ -66,8 +66,8 @@ const applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
     // filter out the list
     on_change: ({ text }) =>
       applications.forEach((item) => {
-        item.visible = item.attribute.app.name
-          .toLowerCase()
+        item.visible = item.attribute.app
+          //.toLowerCase()
           .match(text.toLowerCase() ?? "");
       }),
   });
@@ -94,7 +94,7 @@ const applauncher = ({ width = 500, height = 500, spacing = 12 }) => {
         if (visible) {
           repopulate();
           entry.text = "";
-          //entry.grab_focus();
+          entry.grab_focus();
         }
       }),
   });
