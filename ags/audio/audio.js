@@ -169,6 +169,11 @@ export const VolumeMenu = () => {
     visible: false,
     anchor: ["top", "right"],
     margins: [4, 95],
+    keymode: "exclusive",
+    setup: (self) =>
+      self.keybind("Escape", () => {
+        App.closeWindow("Volumemenu");
+      }),
     child: Widget.Box({
       class_name: "volume-menu-box",
       vertical: true,

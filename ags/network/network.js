@@ -51,9 +51,11 @@ const accessPoint = (obj) => {
     class_name: "network-item",
     children: [
       Widget.Icon({
+        class_name: "network-item-icon",
         icon: obj.iconName,
       }),
       Widget.Label({
+        class_name: "network-item-label",
         label: obj.ssid,
       }),
     ],
@@ -89,6 +91,11 @@ export const NetworkMenu = () => {
     visible: false,
     anchor: ["top", "right"],
     margins: [4, 95],
+    keymode: "exclusive",
+    setup: (self) =>
+      self.keybind("Escape", () => {
+        App.closeWindow("Networkmenu");
+      }),
     child: Widget.Box({
       class_name: "network-menu-box",
       vertical: true,

@@ -1,7 +1,6 @@
 export const Power = () =>
   Widget.Button({
     on_clicked: () => {
-      print("powerbutton clicked");
       App.toggleWindow("Powermenu");
     },
     class_name: "power-button",
