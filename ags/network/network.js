@@ -57,6 +57,11 @@ const accessPoint = (obj) => {
       Widget.Label({
         class_name: "network-item-label",
         label: obj.ssid,
+        setup: (self) => {
+          if (obj.active) {
+            self.class_name = "network-item-label-bold";
+          }
+        },
       }),
     ],
     setup: (self) => {

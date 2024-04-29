@@ -5,7 +5,7 @@ waybar
 stow
 
 #clipboard
-cliphist
+copyq
 
 #audio (at least temporary)
 pavucontrol
