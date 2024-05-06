@@ -16,6 +16,7 @@ import { Netspeed } from "./netspeed/netspeed.js";
 import { Applauncher } from "./applauncher/applauncher.js";
 import { Network, NetworkMenu } from "./network/network.js";
 import { Workspaces } from "./workspaces/workspaces.js";
+import { BatteryProgress } from "./battery/battery.js";
 
 import { ClientTitle } from "./clienttitle/clientTitle.js";
 
@@ -60,6 +61,7 @@ const Right = () => {
       Netspeed(),
       NotificationWidget(),
       SystemTray(),
+      BatteryProgress,
       Network(),
       Volume,
       Clock(),
