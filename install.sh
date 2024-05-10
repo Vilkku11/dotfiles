@@ -11,8 +11,36 @@ echo "
                                                             
 "
 
+symlink_folder() {
+    local src="$1"
+    local target="$2"
+
+    if [ ! -d "$src" ]; then
+        echo "Source dir '$src' not existing"
+        return 1
+    fi
+
+    if [ ! -d "$target" ]; then
+        echo "Target dir '$target' not existing"
+        return 1
+    fi
+
+    for file in "$src"/*; do
+
+        if [ -d "$file" ]; then
+            echo "Symlinking $(realpath "$file") -> $target/$(basename "$file")" 
+            ln -sfn "$(realpath "$file")" "$target/$(basename "$file")"
+        elif [ -f "$file" ]; then
+            echo "Symlinking $(realpath "$file") -> $target/$(basename "$file")"        
+            ln -sf "$(realpath "$file")" "$target/$(basename "$file")"
+        fi
+
+    done
+}
 
 
+symlink_folder "config" "$HOME/.config"
+ln -sf "$(realpath .zshrc)" "$HOME/.zshrc"
 
 echo "Installing packages..."
 sudo pacman -S --noconfirm --needed  $(awk '!/^#|^$/ {print $1}' PKGS)
@@ -21,8 +49,8 @@ sudo pacman -S --noconfirm --needed  $(awk '!/^#|^$/ {print $1}' PKGS)
 
 echo "compile"
 make
-echo "stow test"
-stow . -t ~/.config
+#echo "stow test"
+#stow . -t ~/.config
 # AUR
 
 #mkdir -p ~/AUR
