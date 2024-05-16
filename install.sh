@@ -38,6 +38,21 @@ symlink_folder() {
     done
 }
 
+check_acl() {
+    local device=$(df -h / | awk 'NR==2 {print $1}')
+    
+    if sudo tune2fs -l "$device" | grep -q "Default mount options.*acl"; then
+        echo "enabled"
+        return 0
+    else
+        echo "NO ACL PRESENT IN FILESYSTEM!"
+        return 1
+    fi
+}
+
+if check_acl; then
+    echo "set greetd"
+fi
 
 symlink_folder "config" "$HOME/.config"
 ln -sf "$(realpath .zshrc)" "$HOME/.zshrc"
