@@ -8,6 +8,7 @@ $nodejs\
 $python\
 $java\
 $kotlin\
+$php\
 $fill\
 $status$cmd_duration
 $character
@@ -62,23 +63,27 @@ deleted = '[󰍶 deleted=${count}](red) '
 
 [rust]
 format = ' [$symbol Rust $version](208 bold)'
-symbol = '🦀 '
+symbol = '🦀'
 
 [nodejs]
 format = ' [$symbol Node.js $version](green bold)'
-symbol = ' '
+symbol = ''
 
 [python]
 format = ' [$symbol Python $version](yellow bold)[ $virtualenv](cyan bold)'
-symbol = " "
+symbol = ""
 
 [java]
 format = ' [$symbol Java $version](208 bold)'
-symbol = " "
+symbol = ""
 
 [kotlin]
 format = ' [$symbol Kotlin $version](blue bold)'
-symbol = " "
+symbol = ""
+
+[php]
+format = ' [$symbol PHP $version](147 bold)'
+symbol = "🐘"
 
 [fill]
 symbol= ' '
