@@ -3,8 +3,9 @@ const calendar = Widget.Calendar({
   showDetails: true,
   showHeading: true,
   showWeekNumbers: true,
-  detail: (self, y, m, d) => {
-    return `<span color="white">${d}. ${m}. ${y}.</span>`;
+  class_name: "calendar",
+  detail: (self, m, d) => {
+    return `<span color="white"></span>`;
   },
 });
 
@@ -14,9 +15,9 @@ const Calendar = (monitor = 0) => {
     class_name: "calendar-window",
     monitor,
     visible: false,
-    anchor: ["right"],
+    anchor: ["top", "right"],
+    margins: [4, 95],
     child: Widget.Box({
-      class_name: "calendar",
       vertical: true,
       child: calendar,
     }),

@@ -1,0 +1,21 @@
+.calendar-window {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.calendar {
+  background-color: rgba(20, 50, 100, 0.9);
+  font-size: 1rem;
+
+  .day {
+    color: red;
+  }
+}
+
+calendar.view grid label {
+  color: red;
+}
+
+calendar.view grid label.today {
+  color: blue;
+  font-weight: bold;
+}
