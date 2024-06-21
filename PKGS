@@ -4,6 +4,8 @@ waybar
 
 stow
 
+libva-nvidia-driver
+
 sass
 brightnessctl
 
