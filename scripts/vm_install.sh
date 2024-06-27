@@ -5,7 +5,6 @@ PACKAGES="qemu-full virt-manager virt-viewer dnsmasq vde2 bridge-utils"
 sudo pacman -S --noconfirm --needed $PACKAGES
 
 sudo systemctl enable libvirtd.service
-sudo systemctl start libvirtd.service
 
 sudo usermod -aG libvirt $USER
 
