@@ -4,11 +4,11 @@ return {
   priority = 1000,
   config = function()
     require("catppuccin").setup({
-     no_italic = true,
+     no_italic = false,
      term_colors = true,
      transparent_background = false,
      styles = {
-				comments = {},
+				comments = { "italic" },
 				conditionals = {},
 				loops = {},
 				functions = {},
@@ -19,6 +19,7 @@ return {
 				booleans = {},
 				properties = {},
 				types = {},
+        operators = {},
 			},
 			color_overrides = {
 				mocha = {
