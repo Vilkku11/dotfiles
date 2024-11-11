@@ -6,8 +6,12 @@ hyprland
 gnupg
 openssh
 
+ # neovim
 neovim
+neovide
 ripgrep
+xclip
+wl-clipboard
 
 stow
 
