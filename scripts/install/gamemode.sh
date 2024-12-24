@@ -1,3 +1,5 @@
+#!/bin/bash
+
 PACKAGES="gamemode lib32-gamemode"
 CURRENT_USER=$USER
 
