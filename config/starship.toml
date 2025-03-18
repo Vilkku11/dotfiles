@@ -8,6 +8,7 @@ $python\
 $java\
 $kotlin\
 $php\
+$golang\
 $fill\
 $status$cmd_duration
 $character
@@ -83,6 +84,10 @@ symbol = ""
 [php]
 format = ' [$symbol PHP $version](147 bold)'
 symbol = "🐘"
+
+[golang]
+format = ' [$symbol Go $version](bold cyan) '
+symbol = "🐹 "
 
 [fill]
 symbol= ' '
