@@ -16,12 +16,12 @@ return {
         "cssls",
         "html",
         "ts_ls",
-        --"sqls",
         "lua_ls",
         "rust_analyzer",
         "ruff",
         "psalm",
-
+        "eslint_d",
+       "prettier", 
       },
     })
   end,
