@@ -3,6 +3,11 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 
 
+-- Ctrl+C / Ctrl+V 
+keymap.set("v", "<C-c>", '"+y', { noremap = true, silent = true, desc= "copy"})
+keymap.set("n", "<C-v>", '"+p', { noremap = true, silent = true, desc = "paste"})
+keymap.set("i", "<C-v>", '<C-r+', { noremap = true, silent = true})
+
 
 -- increment/decrement for values
 keymap.set("n", "<leader>+", "<C-a>", {desc = "Increment num"})
