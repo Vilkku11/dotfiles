@@ -8,7 +8,7 @@ keymap.set("v", "<C-c>", '"+y', { noremap = true, silent = true, desc= "copy"})
 keymap.set("n", "<C-v>", '"+p', { noremap = true, silent = true, desc = "paste"})
 keymap.set("i", "<C-v>", '<C-r+', { noremap = true, silent = true})
 
-
+s
 -- increment/decrement for values
 keymap.set("n", "<leader>+", "<C-a>", {desc = "Increment num"})
 keymap.set("n", "<leader>-", "<C-x>", {desc = "Decrement num"})
