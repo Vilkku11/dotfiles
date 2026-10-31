@@ -1,0 +1,12 @@
+[Unit]
+Description=Disable DB PROCHOT (Fix 400MHz CPU lock when no battery)
+After=multi-user.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+
+[Service]
+Type=oneshot
+ExecStartPre=/usr/bin/modprobe msr
+ExecStart=/usr/local/bin/disable-bd-prochot.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
